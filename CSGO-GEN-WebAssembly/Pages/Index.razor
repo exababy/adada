@@ -4,7 +4,7 @@
 @inject StickerService stickerService
 @inject InspectLinkService inspectService
 
-<PageTitle>CS2 Gencode Generator</PageTitle>
+<PageTitle>Helios Gaming Area !ws !knife</PageTitle>
 
 
 
@@ -17,8 +17,8 @@
 
                 <div class="input-group mb-3">
                     <div class="form-floating">
-                        <input type="text" value="@SelectedWeapon.GetGencode(Float, Pattern, SelectedStickers)" class="form-control" placeholder="Gencode" id="gencode" />
-                        <label for="gencode">Gencode</label>
+                        <input type="text" value="@SelectedWeapon.GetGencode(Float, Pattern, SelectedStickers)" class="form-control" placeholder="konsola yapıştırıcaksın!!!" id="gencode" />
+                        <label for="gencode">Konsol Komutu</label>
                     </div>
                     <a class="inspect-btn btn btn-info" href="@inspectService.GenerateInspectLink(SelectedWeapon, Float, Pattern, SelectedStickers)">Inspect</a>
 
@@ -31,8 +31,8 @@
 
                 <div class="weapon-wrapper">
                     <div class="form-floating mb-3">
-                        <input type="text" @bind="WeaponFilter.Searchterm" @bind:event="oninput" class="form-control" placeholder="Search weapon" id="search-weapon" />
-                        <label for="search-weapon">Search weapon</label>
+                        <input type="text" @bind="WeaponFilter.Searchterm" @bind:event="oninput" class="form-control" placeholder="Silah ismi" id="search-weapon" />
+                        <label for="search-weapon">Silah ismi</label>
                     </div>
                     @if (weaponService.SearchWeapon(WeaponFilter).Any())
                     {
@@ -46,43 +46,27 @@
                     }
                 </div>
 
-                <div class="sticker-wrapper">
-                    <div class="form-floating mb-3">
-                        <input type="text" @bind="StickerFilter.Searchterm" @bind:event="oninput" class="form-control" placeholder="Search stickers" id="search-stickers" />
-                        <label for="search-stickers">Search stickers</label>
-                    </div>
-                    @if (stickerService.SearchSticker(StickerFilter).Any())
-                    {
-                        <div class="item-wrapper">
-                            @foreach (var sticker in stickerService.SearchSticker(StickerFilter))
-                            {
-                                <DisplaySticker Sticker="sticker" OnClick="OnStickerClicked" />
-                            }
-                        </div>
-                    }
-                </div>
-
                 <div class="options-wrapper">
                     <div class="form-floating mb-3">
                         <input type="number" @bind="Float" class="form-control" step=".0001" max="1" min="0" placeholder="Float" id="float" />
-                        <label for="float">Float</label>
+                        <label for="float">Float Değeri</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="number" @bind="Pattern" class="form-control" step="1" max="1000" min="0" placeholder="Pattern" id="pattern" />
-                        <label for="pattern">Pattern</label>
+                        <label for="pattern">Katalog ID</label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" @bind="WeaponFilter.IncludeKnives" id="filter-include-knives">
                         <label class="form-check-label" for="filter-include-knives">
-                            Include knives in search results
+                            Bıçakları Göster
                         </label>
                     </div>
 
 
                     @if (SelectedWeapon is not null)
                     {
-                        <button type="button" class="btn btn-danger w-100 mb-1" @onclick="() => SelectedWeapon = null">Reset weapon</button>
+                        <button type="button" class="btn btn-danger w-100 mb-1" @onclick="() => SelectedWeapon = null">Temizle (sıfırla)</button>
                     }
 
 
@@ -95,7 +79,7 @@
                         </div>
 
                         <h3 class="text-white">Search marketplace</h3>
-                        <a href="@GetSteamMarketUrl()" target="_blank" class="btn btn-primary d-block mb-1">Steam market</a>
+                        <a href="@GetSteamMarketUrl()" target="_blank" class="btn btn-primary d-block mb-1">Steam url</a>
                         <a href="@GetCsgofloatUrl()" target="_blank" class="btn btn-primary d-block mb-1">csfloat</a>
                         @if (!string.IsNullOrEmpty(GetBuff163Url()))
                         {
